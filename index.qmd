@@ -27,5 +27,5 @@ Minor in Statistics \| Ongoing
 Undergraduate Researcher \| Intertidal Ecological Surveys \| Summer 2024 - present
 
 ```{r}
-1 + 1
+
 ```
