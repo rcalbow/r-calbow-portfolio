@@ -1,10 +1,30 @@
 ---
 title: "r-calbow-portfolio"
+about:
+  template: jolla
+  image: profile-photo.PNG
+  links:
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/riley-calbow-ab18b9325/
+    - icon: github
+      text: Github
+      href: https://github.com/rcalbow
 ---
 
-This is a Quarto website.
+Riley Calbow is a student at California State University Monterey Bay.
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+## Education
+
+California State University \| Monterey Bay, CA
+
+B.S, in Marine Science \| Ongoing
+
+Minor in Statistics \| Ongoing
+
+## Experience
+
+Undergraduate Researcher \| Intertidal Ecological Surveys \| Summer 2024 - present
 
 ```{r}
 1 + 1

@@ -4,13 +4,27 @@
     "href": "index.html",
     "title": "r-calbow-portfolio",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2"
+    "text": "Riley Calbow is a student at California State University Monterey Bay."
+  },
+  {
+    "objectID": "index.html#education",
+    "href": "index.html#education",
+    "title": "r-calbow-portfolio",
+    "section": "Education",
+    "text": "Education\nCalifornia State University | Monterey Bay, CA\nB.S, in Marine Science | Ongoing\nMinor in Statistics | Ongoing"
+  },
+  {
+    "objectID": "index.html#experience",
+    "href": "index.html#experience",
+    "title": "r-calbow-portfolio",
+    "section": "Experience",
+    "text": "Experience\nUndergraduate Researcher | Intertidal Ecological Surveys | Summer 2024 - present\n\n1 + 1\n\n[1] 2"
   },
   {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
+    "text": "About this site\nHi! My name is Riley Calbow. I am a fourth year student at California State University Monterey Bay studying marine science and statistics. I participate in undergraduate research on intertidal ecosystems and phycological changes over time. My expected graduation date is fall 2026 and I plan to contribute to the conservation of coastal ecosystems in the near future.\n\n1 + 1\n\n[1] 2"
   }
 ]
