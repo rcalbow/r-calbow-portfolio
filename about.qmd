@@ -2,8 +2,10 @@
 title: "About"
 ---
 
-About this site
+About this site0
 
 ```{r}
 1 + 1
+install.packages("usethis")
+library(usethis)
 ```
