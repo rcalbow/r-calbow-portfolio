@@ -1,0 +1,106 @@
+---
+title: "algae_symposium"
+output: html_document
+date: "2024-08-02"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+```
+
+```{r data read}
+#rename 2025 data
+algae_sub_2025 <- read_csv("Data/algalcover_2025 - substrate.csv")
+cover_2025 <- read_csv("Data/algalcover_2025 - Algae cover.csv")
+#older data
+algae1 <- read_csv("Data/Algae1.csv")
+```
+
+```{r wrangling}
+cover_2025$Year <- 2025
+
+cover_2025 <- cover_2025 %>%
+  mutate(Drift = replace_na(Drift, 0))  
+
+cover_2025 <- cover_2025%>%
+  rowwise() %>%
+  mutate(
+    fleshy = sum(c_across(c(Fila, Cort, Foliose, Leath, Kelp, SG, Drift)), na.rm = TRUE),
+    nonfleshy = sum(c_across(c(CrNC, CrCor, AC)), na.rm = TRUE),
+    TC = sum(c_across(c(Fila, Cort, Foliose, Leath, Kelp, SG, Drift, CrNC, CrCor, AC, BR, Mussel, Anem, Barn, Other, Drift))))
+
+cover_2025$F_Prop <- cover_2025$fleshy/cover_2025$TC
+cover_2025$NF_Prop <- cover_2025$nonfleshy/cover_2025$TC
+
+#filter data
+prop_2025 <-cover_2025 %>% select(Site, Year, NF_Prop, F_Prop)
+
+##Join all years
+total_algae <- rbind(algae1, prop_2025)
+str(total_algae)
+total_algae$Year <- as.factor(total_algae$Year)
+
+#change to long format
+total_algae_long <- total_algae %>%
+  gather(key = Algae_type, value = Prop, 3:4)
+#remove gate 16
+total_algae_long_final <- 
+```
+
+```{r figure}
+algae_plot <- ggplot(total_algae_long, aes(x = Year, y = Prop, fill = Algae_type))+
+  geom_boxplot()+
+  facet_wrap(~Site)+
+  theme_classic() +
+labs(title = "Algae Composition Over Time", y = "Proportion") +
+  scale_fill_manual(labels = c("Fleshy", "Non Fleshy"), values = c("darkseagreen", "darkslateblue")) +
+  guides(fill=guide_legend("Algae Type"))
+algae_plot
+ggsave("algae_plot.jpg")
+```
+
+
+```{r old code}
+
+##need to add year column to join in future code
+sub_2023$year <- 2023
+algae_2023$year <- 2023
+
+sub_2022$year <- 2022
+algae_2022$year <- 2022
+
+##add 2024 year here:
+
+
+
+##filter sites from 2024 that aren't in 2022 or 2023 aka Gate 16 and John Denver.
+##might need to filter out point lobos if thats a site listed in 2022 & 2023 data
+
+
+
+##fix column names so they match between class data and summer data. pick underscores for all species IF between years the column names dont match. example included here
+colnames(swathC_2023_wide)[which(names(swathC_2023_wide) == "P. ochraceus")] <- "P_ochraceus"
+#make algae into fleshy and non fleshy props
+algae_props <- algae_2025%>%
+  rowwise() %>%
+  mutate(
+    fleshy = sum(c_across(c(Fila, Cort, Foliose, Leath, Kelp, SG, Drift)), na.rm = TRUE),
+    nonfleshy = sum(c_across(c(CrNC, CrCor, AC)), na.rm = TRUE))
+
+
+## combine all years w/ "bind", including 2024
+sub <- bind_rows(sub_2023, sub_2022, )
+algae <- bind_rows(algae_2023, algae_2022, )
+
+
+##fix site names IF site names dont match across all years, example included here
+swath <- swath %>%
+  mutate(Site = str_replace(Site, "Carmel Pt", "Carmel Point")) %>%
+  mutate(Site = str_replace(Site, "Carmel Pt.", "Carmel Point")) %>%
+  
+##might need to be switching back and forth between long and wide format for analysis
+```
+
+
