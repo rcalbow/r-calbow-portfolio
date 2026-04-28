@@ -97,3 +97,54 @@ Most will answer yes to the following for making your programming more efficient
 9.  Are there any variables you can exclude from your data?
 
 Yes
+
+# Data Cleaning
+
+```{r setup}
+library(tidyverse)
+library(lubridate)
+library(tidyr)
+library(dplyr)
+
+```
+
+```{r read in data}
+urchin <- read.csv("Algae-Project/UROC-Spring-2026-Data/UrchinDensity.csv")
+algae <- read.csv("Algae-Project/UROC-Spring-2026-Data/AlgalCover_2021.csv")
+```
+
+```{r check density data}
+str(urchin)
+unique(urchin$Site) #check if we have duplicates of sites spelled differently/spelled wrong etc.
+urchin_clean <- urchin |>
+  mutate(Site = replace(Site,Site == "Pecadero Point", "Pescadero Point")) |>
+  mutate(Site = replace(Site,Site == "Hopkins ", "Hopkins")) |>
+  mutate(Site = replace(Site,Site == "China Rock ", "China Rock")) |> 
+  select(-c("Investigators", "Entered.By", "Checked.By", "Notes")) #change names that are spelled wrong or have an extra space so they are in the same site name
+#remove columns I don't need for analysis
+unique(urchin_clean$Site) #make sure it worked
+```
+```{r}
+unique(algae$Site)
+algae_clean <- algae |>
+  select(-c("Investigators", "Entered.By", "Checked.By", "Notes")) #remove columns I won't need to include in analysis
+```
+
+```{r put in clean data folder}
+write_csv(urchin, file = "Algae-Project/UROC-Spring-2026-Data/clean-data/urchin_clean.csv")
+clean_urchin <- read_csv("Algae-Project/UROC-Spring-2026-Data/clean-data/urchin_clean.csv")
+
+write_csv(algae, file = "Algae-Project/UROC-Spring-2026-Data/clean-data/algae_clean.csv")
+clean_algae <- read_csv("Algae-Project/UROC-Spring-2026-Data/clean-data/algae_clean.csv")
+```
+
+```{r join data}
+clean_urchin |> 
+  full_join(clean_algae, by = "Site") #joining the two dataframes for now
+#may change how they are joined/clean certain columns once I start making visualizations depending on what works best
+
+```
+
+
+
+
