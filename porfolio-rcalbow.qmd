@@ -1,0 +1,127 @@
+---
+title: "Project: Example for Class"
+format: html
+execute: 
+  echo: false
+  warning: false
+  message: false
+embed-resources: true
+---
+
+```{r}
+#| label: setup
+#| include: false
+library(tidyverse)
+library(lubridate)
+library(tidyr)
+library(dplyr)
+library(paletteer)
+```
+
+
+## Data Description
+
+This data was collected by the CSUMB Rocky Intertidal Lab in 2021 including the percent cover of various algae types and the density of purple sea urchins across
+
+## Data Cleaning
+
+Here I describe in plain speak what I did to clean the data. Do not show code or use technical terms. I want to be able to read this and understand what I did.
+
+```{r}
+#| label: data-cleaning
+#this shoud be hidden from view and no seen in the website it shouldl include your data cleaning and you should export the clean data
+urchin <- read.csv("UrchinDensity.csv")
+algae <- read.csv("AlgalCover_2021.csv")
+
+```
+
+```{r check density data}
+str(urchin)
+unique(urchin$Site) #check if we have duplicates of sites spelled differently/spelled wrong etc.
+urchin_clean <- urchin |>
+  mutate(Site = replace(Site,Site == "Pecadero Point", "Pescadero Point")) |>
+  mutate(Site = replace(Site,Site == "Hopkins ", "Hopkins")) |>
+  mutate(Site = replace(Site,Site == "China Rock ", "China Rock")) |> 
+  select(-c("Investigators", "Entered.By", "Checked.By", "Notes")) #change names that are spelled wrong or have an extra space so they are in the same site name
+#remove columns I don't need for analysis
+unique(urchin_clean$Site) #make sure it worked
+```
+
+```{r}
+unique(algae$Site)
+algae_clean <- algae |>
+  select(-c("Investigators", "Entered.By", "Checked.By", "Notes")) |>
+  pivot_longer( cols = 10:19,
+    names_to = "algae_type",
+               values_to = "perc_cover") |>
+  mutate(algae_type = fct_recode(factor(algae_type),
+                               "Articualted Coralline" = "AC",
+                               "Crustose Coralline" = "CR.Cor",
+                               "Crustose Non-Coralline" = "8"))#remove columns I won't need to include in analysis
+#FINISH RENAMING THE VARIABLES THIS IS WHAT YOU WERE WORKING ON
+
+```
+
+
+
+
+```{r}
+#write in clean data into the folder
+write_csv(urchin_clean, file = "clean-data/urchin_final.csv")
+urchin_final <- read_csv("clean-data/urchin_final.csv")
+
+write_csv(algae_clean, file = "clean-data/algae_final.csv")
+algae_final <- read_csv("clean-data/algae_final.csv")
+```
+
+
+
+## Visualzation 1
+
+Here is a description of the first visualization. I want to describe what the visualization shows to a general audience. I do not want to see any code or technical terms. I want to be able to read this and understand what the visualization shows. I also want to see a caption and alt text for the visualization. The caption should be a short description of the visualization and the alt text should be a longer description of the visualization. The alt text should be descriptive enough that someone who is blind could understand what the visualization shows.
+
+```{r}
+#| label: viz-1
+#| fig-cap: "This is a caption for the first visualization"
+#| fig-alt: "This is an alternative text for the first visualization"
+#| fig-width: 6
+#| fig-height: 5
+#| fig-align: center
+
+#create plot of iris dataset
+ggplot(urchin_final, aes(x = fct_reorder(Site, S_purpuratus), 
+                         y = S_purpuratus, 
+                         fill = as.factor(Site))) +
+  geom_boxplot() +
+  labs(title = "Urchin Density Across Sites", 
+       x = "Site", 
+       y = "Urchin Density (m^2)") +
+ scale_fill_paletteer_d("nationalparkcolors::Arches")+
+  theme_minimal() +
+theme(axis.text.x = element_text(angle = 45, hjust = .75),
+      legend.position = "none")
+```
+
+## Visualization 2
+
+Here is a description of the second visualization. I want to describe what the visualization shows to a general audience. I do not want to see any code or technical terms. I want to be able to read this and understand what the visualization shows. I also want to see a caption and alt text for the visualization. The caption should be a short description of the visualization and the alt text should be a longer description of the visualization. The alt text should be descriptive enough that someone who is blind could understand what the visualization shows.
+
+```{r}
+#| label: viz-2
+#| fig-cap: "This is a caption for the second visualization"
+#| fig-alt: "This is an alternative text for the second visualization"
+#| fig-width: 8
+#| fig-height: 6
+#| fig-align: center
+
+#create plot of cars data set
+ggplot(algae_final, aes(x = Site, y = perc_cover, fill = algae_type)) +
+  geom_boxplot() +
+  labs(title = "Algae Percent Cover by Site", 
+       x = "Site", 
+       y = "Percent Cover (/100%)",
+       fill = "Algae Group") +
+    scale_fill_discrete(labels = c("AC" = "Articulated Coralline"))+
+  scale_fill_paletteer_d("ggthemes::Classic_Cyclic")+
+  theme_minimal()
+```
