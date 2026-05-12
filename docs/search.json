@@ -26,5 +26,40 @@
     "title": "About",
     "section": "",
     "text": "About this site\nHi! My name is Riley Calbow. I am a fourth year student at California State University Monterey Bay studying marine science and statistics. I participate in undergraduate research on intertidal ecosystems and phycological changes over time. My expected graduation date is fall 2026 and I plan to contribute to the conservation of coastal ecosystems in the near future."
+  },
+  {
+    "objectID": "porfolio-rcalbow.html",
+    "href": "porfolio-rcalbow.html",
+    "title": "Project: Example for Class",
+    "section": "",
+    "text": "This data was collected by the CSUMB Rocky Intertidal Lab in 2021 including the percent cover of various algae types and the density of purple sea urchins across"
+  },
+  {
+    "objectID": "porfolio-rcalbow.html#data-description",
+    "href": "porfolio-rcalbow.html#data-description",
+    "title": "Project: Example for Class",
+    "section": "",
+    "text": "This data was collected by the CSUMB Rocky Intertidal Lab in 2021 including the percent cover of various algae types and the density of purple sea urchins across"
+  },
+  {
+    "objectID": "porfolio-rcalbow.html#data-cleaning",
+    "href": "porfolio-rcalbow.html#data-cleaning",
+    "title": "Project: Example for Class",
+    "section": "Data Cleaning",
+    "text": "Data Cleaning\nHere I describe in plain speak what I did to clean the data. Do not show code or use technical terms. I want to be able to read this and understand what I did.\n\n\n'data.frame':   205 obs. of  25 variables:\n $ Site         : chr  \"Sea Palm\" \"Sea Palm\" \"Sea Palm\" \"Sea Palm\" ...\n $ Date         : int  20210712 20210712 20210712 20210712 20210712 20210725 20210725 20210725 20210725 20210725 ...\n $ Transect.No  : chr  \"6\" \"6\" \"6\" \"6\" ...\n $ Lat..Start.  : num  36.6 36.6 36.6 36.6 36.6 ...\n $ Long..Start. : num  122 122 122 122 122 ...\n $ Lat..End.    : num  36.6 36.6 36.6 36.6 36.6 ...\n $ Long..End.   : num  122 122 122 122 122 ...\n $ Quad.No      : int  1 2 3 4 5 1 2 3 4 5 ...\n $ Side         : chr  \"Land\" \"Sea\" \"Land\" \"Sea\" ...\n $ X..0.5.cm    : int  0 0 0 0 0 0 10 6 0 0 ...\n $ X..1.cm      : int  0 0 0 1 0 4 115 18 7 18 ...\n $ X1.cm        : int  2 5 0 17 1 7 99 42 35 67 ...\n $ X2.cm        : int  4 0 1 42 10 9 221 85 36 129 ...\n $ X3.cm        : int  7 6 6 58 8 24 160 86 66 115 ...\n $ X4.cm        : int  3 2 18 41 6 20 40 38 39 21 ...\n $ X5.cm        : int  1 2 25 17 4 7 4 10 8 1 ...\n $ X6.cm        : int  0 0 2 0 1 0 1 3 1 0 ...\n $ S_purpuratus : int  17 15 52 176 30 71 650 288 192 351 ...\n $ P_miniata    : int  0 0 0 0 0 0 1 0 0 1 ...\n $ P_ochraceus  : int  0 0 0 0 0 0 0 0 0 0 ...\n $ L_aequalis   : int  1 0 2 1 7 1 2 0 1 0 ...\n $ Investigators: chr  \"PS, IH\" \"PS, IH\" \"PS, IH\" \"PS, IH\" ...\n $ Entered.By   : chr  \"KR\" \"KR\" \"KR\" \"KR\" ...\n $ Checked.By   : logi  NA NA NA NA NA NA ...\n $ Notes        : chr  \"\" \"\" \"1 diseased urchin\" \"\" ...\n\n\n [1] \"Sea Palm\"        \"Pescadero Point\" \"Cannery Row\"     \"Pecadero Point\" \n [5] \"Hopkins\"         \"Point Pinos\"     \"Hopkins \"        \"Carmel Point\"   \n [9] \"China Rock\"      \"China Rock \"    \n\n\n[1] \"Sea Palm\"        \"Pescadero Point\" \"Cannery Row\"     \"Hopkins\"        \n[5] \"Point Pinos\"     \"Carmel Point\"    \"China Rock\"     \n\n\n\n\n[1] \"Point Pinos\"     \"Cannery Row\"     \"Sea Palm\"        \"Hopkins\"        \n[5] \"Carmel Point\"    \"Pescadero Point\" \"China Rock\""
+  },
+  {
+    "objectID": "porfolio-rcalbow.html#visualzation-1",
+    "href": "porfolio-rcalbow.html#visualzation-1",
+    "title": "Project: Example for Class",
+    "section": "Visualzation 1",
+    "text": "Visualzation 1\nHere is a description of the first visualization. I want to describe what the visualization shows to a general audience. I do not want to see any code or technical terms. I want to be able to read this and understand what the visualization shows. I also want to see a caption and alt text for the visualization. The caption should be a short description of the visualization and the alt text should be a longer description of the visualization. The alt text should be descriptive enough that someone who is blind could understand what the visualization shows.\n\n\n\n\n\nThis is a caption for the first visualization"
+  },
+  {
+    "objectID": "porfolio-rcalbow.html#visualization-2",
+    "href": "porfolio-rcalbow.html#visualization-2",
+    "title": "Project: Example for Class",
+    "section": "Visualization 2",
+    "text": "Visualization 2\nHere is a description of the second visualization. I want to describe what the visualization shows to a general audience. I do not want to see any code or technical terms. I want to be able to read this and understand what the visualization shows. I also want to see a caption and alt text for the visualization. The caption should be a short description of the visualization and the alt text should be a longer description of the visualization. The alt text should be descriptive enough that someone who is blind could understand what the visualization shows.\n\n\n\n\n\nThis is a caption for the second visualization"
   }
 ]
