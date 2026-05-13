@@ -8,8 +8,8 @@ website:
     left:
       - href: index.qmd
         text: Home
-       - text: Porfolio
-        href: analysis.qmd
+      - href: analysis.qmd
+        text: Portfolio
 
 format:
   html:
