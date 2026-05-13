@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "r-calbow-portfolio"
+  title: "Riley Calbow's Portfolio"
   navbar:
     left:
       - href: index.qmd
@@ -11,7 +11,7 @@ website:
       - href: about.qmd
         text: "About Me"
       - href: rcalbow-portfolio.qmd
-        text: "Projectt"
+        text: "Project"
 
 format:
   html:
