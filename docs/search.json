@@ -61,5 +61,40 @@
     "title": "r-calbow-portfolio",
     "section": "Experience",
     "text": "Experience\nUndergraduate Researcher | Intertidal Ecological Surveys | Summer 2024 - present"
+  },
+  {
+    "objectID": "portfolio-rcalbow.html",
+    "href": "portfolio-rcalbow.html",
+    "title": "Project: Where Are The Urchins?",
+    "section": "",
+    "text": "This data was collected by the CSUMB Rocky Intertidal Lab in 2021 including the percent cover of various algae types and the density of purple sea urchins across 7 sites; Pescadero Point, Carmel Point, Hopkins, China Rock, Sea Palm, Cannery Row. Algae percent cover was estimated by using one meter quadrats and identifying primary algae functional groups and sessile organisms. This analysis was conducted to see if sites have different abundances in algae types and urchin density. Results from this analysis could give us an idea of how different sites may be changing over time with changes in herbivory due to increases in purple sea urchins."
+  },
+  {
+    "objectID": "portfolio-rcalbow.html#data-description",
+    "href": "portfolio-rcalbow.html#data-description",
+    "title": "Project: Where Are The Urchins?",
+    "section": "",
+    "text": "This data was collected by the CSUMB Rocky Intertidal Lab in 2021 including the percent cover of various algae types and the density of purple sea urchins across 7 sites; Pescadero Point, Carmel Point, Hopkins, China Rock, Sea Palm, Cannery Row. Algae percent cover was estimated by using one meter quadrats and identifying primary algae functional groups and sessile organisms. This analysis was conducted to see if sites have different abundances in algae types and urchin density. Results from this analysis could give us an idea of how different sites may be changing over time with changes in herbivory due to increases in purple sea urchins."
+  },
+  {
+    "objectID": "portfolio-rcalbow.html#data-cleaning",
+    "href": "portfolio-rcalbow.html#data-cleaning",
+    "title": "Project: Where Are The Urchins?",
+    "section": "Data Cleaning",
+    "text": "Data Cleaning\nTo clean these data I first fixed any spelling errors in sites that caused the same sites to show up multiple times with different spelling by combining them into one label for each site. I then removed all columns I did not need for my analysis. To ensure I could include all algae types in a boxplot, I pivoted the all algae type columns longer into one column for which algae type a percent cover estimate is for called “algae_type” and created a new column for the percent cover estimates called “perc_cover”. Finally, to make sure the algae boxplot showed the full functional group names, not the abbreviations, I changed the abbreviated names of algae groups to the full name."
+  },
+  {
+    "objectID": "portfolio-rcalbow.html#urchin-density",
+    "href": "portfolio-rcalbow.html#urchin-density",
+    "title": "Project: Where Are The Urchins?",
+    "section": "Urchin Density",
+    "text": "Urchin Density\nThis visualization shows boxplots of the urchin density of seven different sites across the Monterey Bay ordered from lowest urchin density to highest urchin density.Pescadero Point shows the highest urchin density at a median of around 180 individuals recorded, Cannery Row and Carmel Point with 50 and 40 individuals respectively. All other sites had an average number of urchins close to 0. Several sites had transects with especially high outliers and urchin density varies across sites. Looking further into the metadata of these sites and what may be driving these different abundances of urchin could be helpful.\n\n\n\n\n\nBoxplots showing the urchin density in individuals at each of the sites monitored. Pescadero Point had the highest number of urchins around a 180 median."
+  },
+  {
+    "objectID": "portfolio-rcalbow.html#algae-percent-cover-in-monterey",
+    "href": "portfolio-rcalbow.html#algae-percent-cover-in-monterey",
+    "title": "Project: Where Are The Urchins?",
+    "section": "Algae Percent Cover in Monterey",
+    "text": "Algae Percent Cover in Monterey\nThis visualization shows the percent cover of each algae functional group across intertidal zones of Monterey Bay. Similar to the first one it shows the percent cover of each group for all seven of the sites. Each site show a different combination of abundance of various algae groups and some are dominated by different functional groups than others or even by bare rock. Hopkins, China Rock, and Carmel Point are dominated by leathery algae. Cannery Row and Pescadero Point are dominated by bare rock, meaning there is a lack of algae at those sites. Point Pinos and Sea Palm are dominated by Crustose Non-Corraline, then bare rock and leathery algae respectively.\nWe can see that algae abundance varies quite a bit across sites! Combining this data with urchin density to see if certain algae types tend to persist where urchins are abundant could reveal interesting trends as to how intertidal communities change with increases or decreases in herbivory related to abundance of sea urchins.\n\n\n\n\n\nBoxplot with site on the x axis and percent cover of algae on the y axis. Color is mapped to algae group. Sites China Rock, Carmel Point, and Hopkins have the highest percent cover of Leathery algae, while Pescadero Point and Cannery Row are dominated by bare rock, and Point Pinos and Sea Palm hae the highest Crustose Non-Coralline percent cover."
   }
 ]
