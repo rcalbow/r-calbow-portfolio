@@ -1,5 +1,5 @@
 ---
-title: "Project: Example for Class"
+title: "Project: Where Are The Urchins?"
 format: html
 execute: 
   echo: false
@@ -20,7 +20,7 @@ library(paletteer)
 
 ## Data Description
 
-This data was collected by the CSUMB Rocky Intertidal Lab in 2021 including the percent cover of various algae types and the density of purple sea urchins across 7 sites; Pescadero Point, Carmel Point, Hopkins, China Rock, Sea Palm, Cannery Row. Algae percent cover was estimated by using one meter quadrats and identifying primary algae functional groups and sessile organisms.
+This data was collected by the CSUMB Rocky Intertidal Lab in 2021 including the percent cover of various algae types and the density of purple sea urchins across 7 sites; Pescadero Point, Carmel Point, Hopkins, China Rock, Sea Palm, Cannery Row. Algae percent cover was estimated by using one meter quadrats and identifying primary algae functional groups and sessile organisms. This analysis was conducted to see if sites have different abundances in algae types and urchin density. Results from this analysis could give us an idea of how different sites may be changing over time with changes in herbivory due to increases in purple sea urchins.
 
 ## Data Cleaning
 
@@ -81,18 +81,18 @@ algae_final <- read_csv("clean-data/algae_final.csv")
 
 ## Urchin Density
 
-This visualization shows boxplots of the urchin density of seven different sites across the Monterey Bay ordered from lowest urchin density to highest urchin density.Pescadero Point shows the highest urchin density at a median of around 180 individuals recorded, Cannery Row and Carmel Point with 50 and 40 individuals respectively. All other sites had an average number of urchins close to 0.
-Here is a description of the first visualization. I want to describe what the visualization shows to a general audience. I do not want to see any code or technical terms. I want to be able to read this and understand what the visualization shows. I also want to see a caption and alt text for the visualization. The caption should be a short description of the visualization and the alt text should be a longer description of the visualization. The alt text should be descriptive enough that someone who is blind could understand what the visualization shows.
+This visualization shows boxplots of the urchin density of seven different sites across the Monterey Bay ordered from lowest urchin density to highest urchin density.Pescadero Point shows the highest urchin density at a median of around 180 individuals recorded, Cannery Row and Carmel Point with 50 and 40 individuals respectively. All other sites had an average number of urchins close to 0. 
+Several sites had transects with especially high outliers and urchin density varies across sites. Looking further into the metadata of these sites and what may be driving these different abundances of urchin could be helpful.
 
 ```{r}
-#| label: viz-1
+#| label: urchin-viz
 #| fig-cap: "Boxplots showing the urchin density in individuals at each of the sites monitored. Pescadero Point had the highest number of urchins around a 180 median."
 #| fig-alt: "Boxplots shoing the urchin density in individuals on the y axis of seven sites across Monterey Bay on the x axis. They are in order from left to right from lowest to highest number of urchins observed. Pescadero Point has the highest median and range with a median around 180 and a range form 350 to 0, with two outliers around 600. Cannery Row has the next highest median around 50 with a range from 280 to  with one outlier at 300. Carmel point is the third highest with a median around 40 and a range from 100 to 0, and 4 outliers at 300, 400, and roughly 450. All other sites including Sea Palm, Point Pinos, China Rock, and Hopkins all have a median close to 0 and a range of approximately 50 to 0 or smaller, with outliers at the highest around 180. "
 #| fig-width: 6
 #| fig-height: 5
 #| fig-align: center
 
-#create plot of iris dataset
+#create plot of urchin data
 ggplot(urchin_final, aes(x = fct_reorder(Site, S_purpuratus), 
                          y = S_purpuratus, 
                          fill = as.factor(Site))) +
@@ -110,23 +110,25 @@ theme(axis.text.x = element_text(angle = 45, hjust = .75),
 
 This visualization shows the percent cover of each algae functional group across intertidal zones of Monterey Bay. Similar to the first one it shows the percent cover of each group for all seven of the sites. Each site show a different combination of abundance of various algae groups and some are dominated by different functional groups than others or even by bare rock. Hopkins, China Rock, and Carmel Point are dominated by leathery algae. Cannery Row and Pescadero Point are dominated by bare rock, meaning there is a lack of algae at those sites. Point Pinos and Sea Palm are dominated by Crustose Non-Corraline, then bare rock and leathery algae respectively.
 
+We can see that algae abundance varies quite a bit across sites! Combining this data with urchin density to see if certain algae types tend to persist where urchins are abundant could reveal interesting trends as to how intertidal communities change with increases or decreases in herbivory related to abundance of sea urchins.
+
 
 ```{r}
-#| label: viz-2
-#| fig-cap: "This is a caption for the second visualization"
-#| fig-alt: "This is an alternative text for the second visualization"
+#| label: algae-viz
+#| fig-cap: "Boxplot with site on the x axis and percent cover of algae on the y axis. Color is mapped to algae group. Sites China Rock, Carmel Point, and Hopkins have the highest percent cover of Leathery algae, while Pescadero Point and Cannery Row are dominated by bare rock, and Point Pinos and Sea Palm hae the highest Crustose Non-Coralline percent cover."
+#| fig-alt: "Boxplot with site name on the x axis and percent cover of algae or bare rock on the y axis. Color is mapped to 9 different algae types or bare rock to show specify type on the boxplot. Sites have a comaparable amount of Crustose Non-Coralline and have limited amounts of seagrass with Sea Palm as an exception with a rnage from 0 to 30. Carmel Point is dominated by Leathery algae, then foliose, China Rock and Hopkins are dominated by Leathery algae then Crustose Non-Coralline. Sites Sea Palm and Point Pinos are dominated by Crustose Non-Coralline while Cannery Row is primarily Bare Rock.  "
 #| fig-width: 8
 #| fig-height: 6
 #| fig-align: center
 
-#create plot of cars data set
+#create plot of algae
 ggplot(algae_final, aes(x = Site, y = perc_cover, fill = algae_type)) +
   geom_boxplot() +
   labs(title = "Algae Percent Cover by Site", 
        x = "Site", 
        y = "Percent Cover (/100%)",
-       fill = "Algae Group") +
-    scale_fill_discrete(labels = c("AC" = "Articulated Coralline"))+
+       fill = "Algae Type") +
   scale_fill_paletteer_d("ggthemes::Classic_Cyclic")+
-  theme_minimal()
+  theme_minimal() +
+   theme(axis.text.x = element_text(angle = 35, hjust = .75))
 ```
