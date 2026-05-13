@@ -1,5 +1,7 @@
 ---
 title: "Portfolio"
+execute: 
+  dir: r-calbow-portfolio
 ---
 
 About this site
@@ -109,8 +111,8 @@ library(dplyr)
 ```
 
 ```{r read in data}
-urchin <- read.csv("Algae-Project/UROC-Spring-2026-Data/UrchinDensity.csv")
-algae <- read.csv("Algae-Project/UROC-Spring-2026-Data/AlgalCover_2021.csv")
+urchin <- read.csv("UrchinDensity.csv")
+algae <- read.csv("AlgalCover_2021.csv")
 ```
 
 ```{r check density data}
@@ -124,6 +126,7 @@ urchin_clean <- urchin |>
 #remove columns I don't need for analysis
 unique(urchin_clean$Site) #make sure it worked
 ```
+
 ```{r}
 unique(algae$Site)
 algae_clean <- algae |>
@@ -131,20 +134,16 @@ algae_clean <- algae |>
 ```
 
 ```{r put in clean data folder}
-write_csv(urchin, file = "Algae-Project/UROC-Spring-2026-Data/clean-data/urchin_clean.csv")
-clean_urchin <- read_csv("Algae-Project/UROC-Spring-2026-Data/clean-data/urchin_clean.csv")
+#write_csv(urchin, file = "Algae-Project/UROC-Spring-2026-Data/clean-data/urchin_clean.csv")
+#clean_urchin <- read_csv("Algae-Project/UROC-Spring-2026-Data/clean-data/urchin_clean.csv")
 
-write_csv(algae, file = "Algae-Project/UROC-Spring-2026-Data/clean-data/algae_clean.csv")
-clean_algae <- read_csv("Algae-Project/UROC-Spring-2026-Data/clean-data/algae_clean.csv")
+#write_csv(algae, file = "Algae-Project/UROC-Spring-2026-Data/clean-data/algae_clean.csv")
+#clean_algae <- read_csv("Algae-Project/UROC-Spring-2026-Data/clean-data/algae_clean.csv")
 ```
 
 ```{r join data}
-clean_urchin |> 
-  full_join(clean_algae, by = "Site") #joining the two dataframes for now
+#clean_urchin |> 
+ # full_join(clean_algae, by = "Site") #joining the two dataframes for now
 #may change how they are joined/clean certain columns once I start making visualizations depending on what works best
 
 ```
-
-
-
-
