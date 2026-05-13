@@ -6,9 +6,9 @@ website:
   title: "r-calbow-portfolio"
   navbar:
     left:
-    - text: Home
+    - text: "Home"
       href: index.qmd
-    - text: Portfolio
+    - text: "Portfolio"
       href: portfolio-rcalbow.qmd
 
 format:
