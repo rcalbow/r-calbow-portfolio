@@ -8,7 +8,7 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - href: analysis.qmd
+      - href: portfolio-rcalbow.qmd
         text: Portfolio
 
 format:
