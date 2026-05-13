@@ -12,7 +12,6 @@ website:
         text: "About Me"
       - href: portfolio-rcalbow.qmd
         text: "Project"
-
 format:
   html:
     theme:
